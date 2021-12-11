@@ -1,0 +1,223 @@
+
+ <html lang="en">
+     <head>
+     <meta charset="utf-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+     <title>Hargeisa, Somaliland </title>
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css"
+     integrity="sha512-wcw6ts8Anuw10Mzh9Ytw4pylW8+NAD4ch3lqm9lzAsTxg0GFeJgoAtxuCLREZSC5lUXdVyo/7yfsqFjQ4S+aKw=="
+     crossorigin=""/>
+
+     <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js"
+     integrity="sha512-mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA=="
+     crossorigin=""></script>
+     </head>
+     <style>
+     body {
+     padding: 0;
+     margin: 0;
+     }
+     html, body, #map {
+     height: 100%;
+     }
+     </style>
+     
+     
+     <body>
+         
+
+         
+     <div id="map"></div>
+     <script>
+var map = L.map('map').setView([ 9.5617, 44.0660], 13);
+     
+var OpenStreetMap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+       
+var WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}');
+  
+var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+    maxZoom: 20,
+    subdomains:['mt0','mt1','mt2','mt3']
+});
+
+var googleTerrain = L.tileLayer('http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}',{
+    maxZoom: 20,
+    subdomains:['mt0','mt1','mt2','mt3']
+});
+
+var googleHybrid = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
+    maxZoom: 20,
+    subdomains:['mt0','mt1','mt2','mt3']
+});
+
+
+
+  map.addLayer(OpenStreetMap);
+     //change localhost below to your IP or hostname
+
+
+    
+  //------------------------------------------------------------------------------------------------------------------   
+     var Distict1= L.tileLayer.wms("https://geo.shabelleriver.net/geoserver/wms", {
+     layers: 'hargeisa:District',
+     format: 'image/png',
+     transparent: true
+    });
+     
+      var Sub_Districts1= L.tileLayer.wms("https://geo.shabelleriver.net/geoserver/wms", {
+     layers: 'hargeisa:Sub_Districts1',
+     format: 'image/png',
+     transparent: true
+    });
+     
+    var Properteis= L.tileLayer.wms("https://geo.shabelleriver.net/geoserver/wms", {
+     layers: 'hargeisa:Properties',
+     format: 'image/png',
+     transparent: true
+    });
+     
+ 
+
+    var MajorRivers= L.tileLayer.wms("https://geo.shabelleriver.net/geoserver/wms", {
+     layers: 'hargeisa:Major_River',
+     format: 'image/png',
+     transparent: true
+    });
+     
+    var SecodaryRiver= L.tileLayer.wms("https://geo.shabelleriver.net/geoserver/wms", {
+     layers: 'hargeisa:Secondary_River',
+     format: 'image/png',
+     transparent: true
+    });
+     
+
+
+    var MajorRoad= L.tileLayer.wms("https://geo.shabelleriver.net/geoserver/wms", {
+     layers: 'hargeisa:Major_Roads',
+     format: 'image/png',
+     transparent: true
+    });
+     
+
+
+    var SecondaryRoad= L.tileLayer.wms("https://geo.shabelleriver.net/geoserver/wms", {
+     layers: 'hargeisa:Secondary_Roads',
+     format: 'image/png',
+     transparent: true
+    });
+     
+     
+
+    var Commerical= L.tileLayer.wms("https://geo.shabelleriver.net/geoserver/wms", {
+     layers: 'hargeisa:Commercial',
+     format: 'image/png',
+     transparent: true
+    });
+     
+    var Schools= L.tileLayer.wms("https://geo.shabelleriver.net/geoserver/wms", {
+     layers: 'hargeisa:School',
+     format: 'image/png',
+     transparent: true
+    });
+     
+
+    var Mosque= L.tileLayer.wms("https://geo.shabelleriver.net/geoserver/wms", {
+     layers: 'hargeisa:Mosque',
+     format: 'image/png',
+     transparent: true
+    });
+
+
+    var FuelStations= L.tileLayer.wms("https://geo.shabelleriver.net/geoserver/wms", {
+     layers: 'hargeisa:Fuel_Stations',
+     format: 'image/png',
+     transparent: true
+    });
+
+
+    var Police= L.tileLayer.wms("https://geo.shabelleriver.net/geoserver/wms", {
+     layers: 'hargeisa:Police',
+     format: 'image/png',
+     transparent: true
+    });
+
+    var Health= L.tileLayer.wms("https://geo.shabelleriver.net/geoserver/wms", {
+     layers: 'hargeisa:Health',
+     format: 'image/png',
+     transparent: true
+    });
+
+
+    var Hotel= L.tileLayer.wms("https://geo.shabelleriver.net/geoserver/wms", {
+     layers: 'hargeisa:Hotel',
+     format: 'image/png',
+     transparent: true
+    });
+
+    
+
+   // var heatmapsource= new ol.source  ({
+    //    url: 'https://geo.shabelleriver.net/geoserver/hargeisa/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=hargeisa%3ASchool&maxFeatures=50&outputFormat=application%2Fjson'
+   // });
+
+
+    //var heatmapsource = new ol.source.vector({
+	 // format: new ol.format.GeoJSON(),
+	// url: 'https://geo.shabelleriver.net/geoserver/hargeisa/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=hargeisa%3ASchool&maxFeatures=50&outputFormat=application%2Fjson'
+   // });
+
+    //var heatmapsource = new ol.source.vector ({
+    //  format : new ol.format.GeoJSON(),
+    //  url: 'https://geo.shabelleriver.net/geoserver/hargeisa/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=hargeisa%3ASchool&maxFeatures=50&outputFormat=application%2Fjson'
+    //});
+
+
+
+   // var heatmaplayer = new ol.source.heatmaplayer({
+	//   source: heatmapsource
+   // });
+
+
+
+       var baseLayers = {
+        "Open Street Map": OpenStreetMap,
+        "World Imagery": WorldImagery,
+        "Satellite":googleSat,
+         "Terrain" :googleTerrain,
+        "Hybrid": googleHybrid,
+        };
+     
+      var overlays = {
+        "Distict": Distict1,
+        "Sub Districts ": Sub_Districts1,
+        "Properties ": Properteis,
+        "Major River":MajorRivers,
+        "Secondary River": SecodaryRiver,
+        "Major Road":  MajorRoad,
+        "Secondary Road":  SecondaryRoad,
+
+        "Commerial": Commerical,
+        "School ": Schools,
+        "Mosque ": Mosque,
+        "Fuel Stations":FuelStations,
+        "Police Stations": Police,
+        "Health":  Health,
+        "Hotels":  Hotel
+      
+     
+     
+          }; 
+    
+     map.addLayer(Distict1);
+    // map.addLayer(wmsRiver);
+
+    L.control.layers(baseLayers,overlays, { collapsed:false } ).addTo(map);
+   // L.control.layers(baseMaps, overlays, { collapsed:false } ).addTo(mymap);
+
+
+
+
+     
+     </script>
+     </html>
